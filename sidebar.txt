@@ -1,0 +1,30 @@
+
+------------------------/ SIDEBAR /---------------------------
+
+Dashboard
+
+Catalog
+    - Products
+    - Add Product
+    - Brands
+    - Add Brand
+    - Categories
+    - Add Category
+    - Colors
+    - Add Color
+
+Orders
+
+Marketing
+    - Coupons
+    - Add Coupon
+
+Blog
+    - Blogs
+    - Add Blog
+    - Categories
+    - Add Category
+
+Enquiries
+
+------------------------/ SIDEBAR /---------------------------
