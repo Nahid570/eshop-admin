@@ -1,5 +1,5 @@
 import { Routes, Route, useNavigate } from "react-router-dom";
-import { Dashboard, ForgetPass, Login, ResetPass } from "../pages";
+import { Dashboard, Enquires, ForgetPass, Login, Orders, ResetPass } from "../pages";
 import { Layout } from "../components/index";
 import { useEffect } from "react";
 
@@ -8,9 +8,7 @@ const Router = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    admin
-      ? navigate("/admin", { replace: true })
-      : navigate("/", { replace: true });
+    !admin && navigate("/", { replace: true });
   }, [admin, navigate]);
 
   return (
@@ -20,6 +18,8 @@ const Router = () => {
       <Route path="/forget-password" element={<ForgetPass />} />
       <Route path="admin" element={<Layout />}>
         <Route index element={<Dashboard />} />
+        <Route path="orders" element={<Orders />} />
+        <Route path="enquiries" element={<Enquires />}/>
       </Route>
     </Routes>
   );
