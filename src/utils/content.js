@@ -5,6 +5,10 @@ import { FaChartLine } from "react-icons/fa";
 import { TbArticle } from "react-icons/tb";
 import { BsQuestionOctagonFill } from "react-icons/bs";
 
+import { HiOutlineDotsVertical } from "react-icons/hi";
+import { BiTrendingUp, BiTrendingDown } from "react-icons/bi";
+
+// Sidebae menu data
 export const sidebarMenus = [
   { title: "Dashboard", path: "/admin", src: MdOutlineDashboardCustomize },
   {
@@ -40,4 +44,38 @@ export const sidebarMenus = [
     ],
   },
   { title: "Enquiries", path: "/admin/enquiries", src: BsQuestionOctagonFill },
+];
+
+// Dashboard card content
+export const dashCardData = [
+  {
+    id: 1,
+    title: "Total Sells",
+    icon: HiOutlineDotsVertical,
+    amount: 3799.0,
+    sellsIndicator: BiTrendingUp,
+    text: 34.7,
+    color: "text-green-600",
+    predict: "Compared to April 2023",
+  },
+  {
+    id: 2,
+    title: "Average order value",
+    icon: HiOutlineDotsVertical,
+    amount: 272.98,
+    sellsIndicator: BiTrendingDown,
+    text: 12.0,
+    color: "text-red-600",
+    predict: "Compared to April 2023",
+  },
+  {
+    id: 3,
+    title: "Total Orders",
+    icon: HiOutlineDotsVertical,
+    amount: 177,
+    sellsIndicator: BiTrendingUp,
+    text: 27.9,
+    color: "text-green-600",
+    predict: "Compared to April 2023",
+  },
 ];

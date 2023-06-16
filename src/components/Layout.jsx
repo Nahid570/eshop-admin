@@ -14,7 +14,7 @@ const Layout = () => {
         </div>
         <div className="grow">
           <Header mobileMenu={mobileMenu} setMobileMenu={setMobileMenu} />
-          <div className="p-5 bg-gray-200 min-h-screen">
+          <div className="p-5 bg-gray-300 min-h-[calc(100vh-56px)] w-[100%]">
             <Outlet />
           </div>
         </div>

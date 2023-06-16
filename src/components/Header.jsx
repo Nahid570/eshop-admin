@@ -6,7 +6,7 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 const Header = ({ mobileMenu, setMobileMenu }) => {
   return (
     <>
-      <div className="flex items-center justify-between sm:justify-end px-4 py-2 bg-nav-gradient sticky top-0 left-0 z-40">
+      <div className="flex items-center justify-between sm:justify-end px-4 py-2 nav-bg sticky top-0 left-0 z-40">
         {!mobileMenu ? (
           <GiHamburgerMenu
             className={`block sm:hidden  text-3xl fill-white cursor-pointer`}
