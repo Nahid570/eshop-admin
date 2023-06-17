@@ -14,7 +14,7 @@ export const TextInput = ({ label, ...props }) => {
         {...props}
       />
       {meta.touched && meta.error ? (
-        <p className="text-red-600">{meta.error}</p>
+        <p className="text-red-600 mt-2">{meta.error}</p>
       ) : null}
     </>
   );
