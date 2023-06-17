@@ -47,7 +47,7 @@ const Sidebar = ({ open, setOpen, mobileMenu }) => {
         <ul className="pt-10 flex flex-col">
           {sidebarMenus.map((menu, menuIndex) => (
             <>
-              <Link to={menu.path}>
+              <Link to={menu.path} key={menuIndex}>
                 <li
                   key={menuIndex}
                   className={`flex items-center ${
@@ -91,7 +91,8 @@ const Sidebar = ({ open, setOpen, mobileMenu }) => {
               {menu.isSubmenu && subMenu === menuIndex && open && (
                 <ul className="mt-2 duration-1000">
                   {menu.subMenus.map((subItem, index) => (
-                    <li
+                    <Link key={index} to={`/${subItem.path}`}>
+                      <li
                       key={index}
                       className={`text-slate-400 px-4 py-1 flex items-center ${
                         subMenu === menuIndex && "gap-4"
@@ -109,6 +110,7 @@ const Sidebar = ({ open, setOpen, mobileMenu }) => {
                         {subItem.title}
                       </span>
                     </li>
+                    </Link>
                   ))}
                 </ul>
               )}

@@ -1,5 +1,5 @@
-import { dashCardData } from "../utils/content";
-import { BarChart, DashCard } from "../components/index";
+import { dashCardData, dashTableData } from "../utils/content";
+import { BarChart, DashCard, Table } from "../components/index";
 
 const Dashboard = () => {
   return (
@@ -12,6 +12,10 @@ const Dashboard = () => {
       <div className="mt-5">
         <p className="text-2xl text-slate-700 font-bold">Income Stats</p>
         <BarChart />
+      </div>
+      <div className="mt-5">
+        <p className="text-2xl text-slate-700 font-bold">Recent Orders</p>
+        <Table tableData={dashTableData} />
       </div>
     </>
   );

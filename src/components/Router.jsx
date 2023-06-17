@@ -1,5 +1,9 @@
 import { Routes, Route, useNavigate } from "react-router-dom";
 import {
+  AddBlog,
+  AddCategory,
+  Blogs,
+  Categories,
   Dashboard,
   Enquires,
   ForgetPass,
@@ -17,7 +21,6 @@ const Router = () => {
   useEffect(() => {
     !admin && navigate("/", { replace: true });
   }, [admin, navigate]);
-  
 
   return (
     <Routes>
@@ -28,6 +31,12 @@ const Router = () => {
         <Route index element={<Dashboard />} />
         <Route path="orders" element={<Orders />} />
         <Route path="enquiries" element={<Enquires />} />
+        {/* Blogs  */}
+        <Route path="blogs" element={<Blogs />} />
+        <Route path="add-blog" element={<AddBlog />} />
+        <Route path="blog-categories" element={<Categories />} />
+        <Route path="add-blog-category" element={<AddCategory />} />
+        {/* Blogs  */}
       </Route>
     </Routes>
   );
