@@ -7,16 +7,27 @@ import { BiLogOutCircle } from "react-icons/bi";
 import { IoIosArrowDropdown } from "react-icons/io";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { useEffect, useState } from "react";
+import { useLogoutQuery } from "../features/auth/authApiSlice";
+import { useDispatch } from "react-redux";
+import { logout } from "../features/auth/authSlice";
 
 const Sidebar = ({ open, setOpen, mobileMenu }) => {
   const [active, setActive] = useState("dashboard");
   const [subMenu, setSubMenu] = useState(null);
   const [activeSubMenu, setActiveSubMenu] = useState(null);
+  const { isSuccess } = useLogoutQuery();
+  const dispatch = useDispatch();
 
   // When Menu Item will be change SUb menu active status will set to null
   useEffect(() => {
     setActiveSubMenu(null);
   }, [subMenu]);
+
+  const handleLogout = () => {
+    if (isSuccess) {
+      dispatch(logout());
+    }
+  };
 
   return (
     <>
@@ -93,23 +104,25 @@ const Sidebar = ({ open, setOpen, mobileMenu }) => {
                   {menu.subMenus.map((subItem, index) => (
                     <Link key={index} to={`/${subItem.path}`}>
                       <li
-                      key={index}
-                      className={`text-slate-400 px-4 py-1 flex items-center ${
-                        subMenu === menuIndex && "gap-4"
-                      } cursor-pointer`}
-                      onClick={() => setActiveSubMenu(index)}
-                    >
-                      <AiOutlineArrowRight
-                        className={`${index === activeSubMenu && "text-white"}`}
-                      />
-                      <span
-                        className={`flex-1 text-lg ${
-                          index === activeSubMenu && "text-white"
-                        }`}
+                        key={index}
+                        className={`text-slate-400 px-4 py-1 flex items-center ${
+                          subMenu === menuIndex && "gap-4"
+                        } cursor-pointer`}
+                        onClick={() => setActiveSubMenu(index)}
                       >
-                        {subItem.title}
-                      </span>
-                    </li>
+                        <AiOutlineArrowRight
+                          className={`${
+                            index === activeSubMenu && "text-white"
+                          }`}
+                        />
+                        <span
+                          className={`flex-1 text-lg ${
+                            index === activeSubMenu && "text-white"
+                          }`}
+                        >
+                          {subItem.title}
+                        </span>
+                      </li>
                     </Link>
                   ))}
                 </ul>
@@ -119,21 +132,20 @@ const Sidebar = ({ open, setOpen, mobileMenu }) => {
         </ul>
 
         <div className="grow flex flex-col justify-end mt-20">
-          <Link to="/admin/logout">
-            <div
-              className={`flex cursor-pointer items-center ${
-                (open || mobileMenu) && "gap-x-4"
-              }`}
-            >
-              <BiLogOutCircle
-                title={!open || mobileMenu ? "Logout" : undefined}
-                className="text-2xl text-slate-400 "
-              />
-              <span className="text-xl text-slate-400 ">
-                {(open || mobileMenu) && "Logout"}
-              </span>
-            </div>
-          </Link>
+          <div
+            className={`flex cursor-pointer items-center ${
+              (open || mobileMenu) && "gap-x-4"
+            }`}
+            onClick={handleLogout}
+          >
+            <BiLogOutCircle
+              title={!open || mobileMenu ? "Logout" : undefined}
+              className="text-2xl text-slate-400 "
+            />
+            <span className="text-xl text-slate-400 hover:text-white">
+              {(open || mobileMenu) && "Logout"}
+            </span>
+          </div>
         </div>
       </div>
     </>
